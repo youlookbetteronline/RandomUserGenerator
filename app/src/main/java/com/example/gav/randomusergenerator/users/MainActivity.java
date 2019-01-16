@@ -1,7 +1,10 @@
-package com.example.gav.randomusergenerator;
+package com.example.gav.randomusergenerator.users;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.example.gav.randomusergenerator.R;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
