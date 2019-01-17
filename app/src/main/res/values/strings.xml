@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">RandomUserGenerator</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="phone_title">Cell Phone</string>
+    <string name="email_title">Email</string>
+    <string name="dob_title">Date of birth</string>
+    <string name="gender_title">Gender</string>
+    <string name="years_old">years old</string>
 </resources>

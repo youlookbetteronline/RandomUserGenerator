@@ -1,5 +1,6 @@
 package com.example.gav.randomusergenerator.users;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,6 +8,7 @@ import android.view.ViewGroup;
 
 import com.example.gav.randomusergenerator.R;
 import com.example.gav.randomusergenerator.api.model.ResultsItem;
+import com.example.gav.randomusergenerator.profile.ProfileActivity;
 
 import java.util.Collections;
 import java.util.List;
@@ -22,12 +24,10 @@ public class UsersFragment extends Fragment implements UsersContract.View{
     private RecyclerView rvUsers;
     private UsersAdapter usersAdapter;
 
-
     public static UsersFragment newInstance() {
         UsersFragment fragment = new UsersFragment();
         return fragment;
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -42,7 +42,18 @@ public class UsersFragment extends Fragment implements UsersContract.View{
         rvUsers = view.findViewById(R.id.rvUsers);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
         rvUsers.setLayoutManager(layoutManager);
-        usersAdapter = new UsersAdapter(Collections.emptyList());
+        usersAdapter = new UsersAdapter(Collections.emptyList(), resultItem -> {
+            Intent intent = new Intent(getActivity(), ProfileActivity.class);
+            intent.putExtra("imageURL", resultItem.getPicture().getMedium());
+            intent.putExtra("age", resultItem.getDob().getAge());
+            intent.putExtra("phone", resultItem.getPhone());
+            intent.putExtra("email", resultItem.getEmail());
+            intent.putExtra("gender", resultItem.getGender());
+            intent.putExtra("firstName", resultItem.getName().getFirst());
+            intent.putExtra("lastName", resultItem.getName().getLast());
+            intent.putExtra("dob", resultItem.getDob().getDate());
+            startActivity(intent);
+        });
         rvUsers.setAdapter(usersAdapter);
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(rvUsers.getContext(),
                 ((LinearLayoutManager) layoutManager).getOrientation());
@@ -68,5 +79,9 @@ public class UsersFragment extends Fragment implements UsersContract.View{
     public void onDestroyView() {
         super.onDestroyView();
         presenter.onDestroy();
+    }
+
+    public interface OnUserClickListener {
+        void onUserClick(ResultsItem user);
     }
 }

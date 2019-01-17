@@ -39,12 +39,10 @@ public class UsersViewHolder extends RecyclerView.ViewHolder {
 
     private void fillPhoto(ResultsItem resultsItem) {
         String url = resultsItem.getPicture().getMedium();
-        RequestOptions options = new RequestOptions();
-        options.transforms(new CenterCrop(), new RoundedCorners(20));
 
         Glide.with(ivPhoto)
                 .load(url)
-                .apply(options)
+                .apply(RequestOptions.circleCropTransform())
                 .into(ivPhoto);
     }
 
