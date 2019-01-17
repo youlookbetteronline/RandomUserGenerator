@@ -8,27 +8,50 @@ import android.view.ViewGroup;
 import com.example.gav.randomusergenerator.R;
 import com.example.gav.randomusergenerator.api.model.ResultsItem;
 
+import java.util.Collections;
 import java.util.List;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 public class UsersFragment extends Fragment implements UsersContract.View{
     public static final String TAG = "UsersFragment";
+    private UsersContract.Presenter presenter;
+    private RecyclerView rvUsers;
+    private UsersAdapter usersAdapter;
+
 
     public static UsersFragment newInstance() {
         UsersFragment fragment = new UsersFragment();
         return fragment;
     }
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_users, container, false);
+        initViews(view);
+        presenter.onCreate();
+        presenter.loadUsers(20);
         return view;
     }
 
-    @Override
-    public void showTasks(List<ResultsItem> users) {
+    private void initViews(View view) {
+        rvUsers = view.findViewById(R.id.rvUsers);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
+        rvUsers.setLayoutManager(layoutManager);
+        usersAdapter = new UsersAdapter(Collections.emptyList());
+        rvUsers.setAdapter(usersAdapter);
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(rvUsers.getContext(),
+                ((LinearLayoutManager) layoutManager).getOrientation());
+        rvUsers.addItemDecoration(dividerItemDecoration);
+    }
 
+    @Override
+    public void showUsers(List<ResultsItem> users) {
+        usersAdapter.setItems(users);
     }
 
     @Override
@@ -38,6 +61,12 @@ public class UsersFragment extends Fragment implements UsersContract.View{
 
     @Override
     public void setPresenter(UsersContract.Presenter presenter) {
+        this.presenter = presenter;
+    }
 
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        presenter.onDestroy();
     }
 }

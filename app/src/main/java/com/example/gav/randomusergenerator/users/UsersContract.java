@@ -11,16 +11,14 @@ import androidx.annotation.NonNull;
 public interface UsersContract {
     interface View extends BaseView<Presenter> {
 
-        void showTasks(List<ResultsItem> users);
+        void showUsers(List<ResultsItem> users);
 
         void showUserDetails(String userID);
     }
 
     interface Presenter extends BasePresenter {
 
-        void result(int requestCode, int resultCode);
-
-        void loadUsers(boolean forceUpdate);
+        void loadUsers(int count);
 
         void openUserDetails(@NonNull ResultsItem requestedTask);
     }

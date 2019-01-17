@@ -19,17 +19,11 @@ public class ResultsItem{
 	@SerializedName("name")
 	private Name name;
 
-	@SerializedName("registered")
-	private Registered registered;
-
 	@SerializedName("location")
 	private Location location;
 
 	@SerializedName("id")
 	private Id id;
-
-	@SerializedName("login")
-	private Login login;
 
 	@SerializedName("cell")
 	private String cell;
@@ -80,14 +74,6 @@ public class ResultsItem{
 		return name;
 	}
 
-	public void setRegistered(Registered registered){
-		this.registered = registered;
-	}
-
-	public Registered getRegistered(){
-		return registered;
-	}
-
 	public void setLocation(Location location){
 		this.location = location;
 	}
@@ -102,14 +88,6 @@ public class ResultsItem{
 
 	public Id getId(){
 		return id;
-	}
-
-	public void setLogin(Login login){
-		this.login = login;
-	}
-
-	public Login getLogin(){
-		return login;
 	}
 
 	public void setCell(String cell){
@@ -144,11 +122,9 @@ public class ResultsItem{
 			",gender = '" + gender + '\'' + 
 			",phone = '" + phone + '\'' + 
 			",dob = '" + dob + '\'' + 
-			",name = '" + name + '\'' + 
-			",registered = '" + registered + '\'' + 
+			",name = '" + name + '\'' +
 			",location = '" + location + '\'' + 
-			",id = '" + id + '\'' + 
-			",login = '" + login + '\'' + 
+			",id = '" + id + '\'' +
 			",cell = '" + cell + '\'' + 
 			",email = '" + email + '\'' + 
 			",picture = '" + picture + '\'' + 

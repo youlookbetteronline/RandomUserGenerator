@@ -23,8 +23,8 @@ public class App extends Application {
                     .create();
 
             Retrofit retrofit = new Retrofit.Builder()
-                    .baseUrl("https://www.flickr.com/")
-                    .addConverterFactory(GsonConverterFactory.create(gson))
+                    .baseUrl("https://randomuser.me/")
+                    .addConverterFactory(GsonConverterFactory.create())
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                     .build();
             randomUserApi = retrofit.create(RandomUserApi.class);

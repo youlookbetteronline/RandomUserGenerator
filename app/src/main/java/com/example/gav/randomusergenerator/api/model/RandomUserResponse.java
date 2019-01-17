@@ -8,9 +8,6 @@ public class RandomUserResponse{
 	@SerializedName("results")
 	private List<ResultsItem> results;
 
-	@SerializedName("info")
-	private Info info;
-
 	public void setResults(List<ResultsItem> results){
 		this.results = results;
 	}
@@ -19,20 +16,11 @@ public class RandomUserResponse{
 		return results;
 	}
 
-	public void setInfo(Info info){
-		this.info = info;
-	}
-
-	public Info getInfo(){
-		return info;
-	}
-
 	@Override
  	public String toString(){
 		return 
 			"RandomUserResponse{" + 
-			"results = '" + results + '\'' + 
-			",info = '" + info + '\'' + 
+			"results = '" + results + '\'' +
 			"}";
 		}
 }

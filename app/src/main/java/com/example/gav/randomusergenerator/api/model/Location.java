@@ -10,14 +10,8 @@ public class Location{
 	@SerializedName("street")
 	private String street;
 
-	@SerializedName("timezone")
-	private Timezone timezone;
-
 	@SerializedName("postcode")
-	private int postcode;
-
-	@SerializedName("coordinates")
-	private Coordinates coordinates;
+	private String postcode;
 
 	@SerializedName("state")
 	private String state;
@@ -38,28 +32,12 @@ public class Location{
 		return street;
 	}
 
-	public void setTimezone(Timezone timezone){
-		this.timezone = timezone;
-	}
-
-	public Timezone getTimezone(){
-		return timezone;
-	}
-
-	public void setPostcode(int postcode){
+	public void setPostcode(String postcode){
 		this.postcode = postcode;
 	}
 
-	public int getPostcode(){
+	public String getPostcode(){
 		return postcode;
-	}
-
-	public void setCoordinates(Coordinates coordinates){
-		this.coordinates = coordinates;
-	}
-
-	public Coordinates getCoordinates(){
-		return coordinates;
 	}
 
 	public void setState(String state){
@@ -75,10 +53,8 @@ public class Location{
 		return 
 			"Location{" + 
 			"city = '" + city + '\'' + 
-			",street = '" + street + '\'' + 
-			",timezone = '" + timezone + '\'' + 
-			",postcode = '" + postcode + '\'' + 
-			",coordinates = '" + coordinates + '\'' + 
+			",street = '" + street + '\'' +
+			",postcode = '" + postcode + '\'' +
 			",state = '" + state + '\'' + 
 			"}";
 		}
