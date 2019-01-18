@@ -1,4 +1,4 @@
-package com.example.gav.randomusergenerator;
+package com.example.gav.randomusergenerator.base;
 
 public interface BasePresenter {
     void onCreate();

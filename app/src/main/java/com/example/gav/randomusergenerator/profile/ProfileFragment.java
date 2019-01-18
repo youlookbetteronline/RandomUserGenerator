@@ -114,7 +114,6 @@ public class ProfileFragment extends Fragment {
                         callIntent.setData(Uri.parse("tel:" + phone));
                         startActivity(callIntent);
                     }
-
                 }
                 else {
                     Intent callIntent = new Intent(Intent.ACTION_CALL);

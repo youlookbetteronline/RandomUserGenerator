@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import com.example.gav.randomusergenerator.R;
 import com.example.gav.randomusergenerator.api.model.ResultsItem;
 import com.example.gav.randomusergenerator.profile.ProfileActivity;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.Collections;
 import java.util.List;
@@ -66,7 +67,15 @@ public class UsersFragment extends Fragment implements UsersContract.View{
     }
 
     @Override
-    public void showUserDetails(String userID) {
+    public void errorShowUsers(Throwable throwable) {
+        View viewRoot = getView();
+        if (viewRoot != null) {
+            Snackbar
+                .make(viewRoot, getActivity().getResources().getString(R.string.repeat_text), Snackbar.LENGTH_INDEFINITE)
+                .setAction("Ok", view -> {
+                    presenter.loadUsers(20);
+                }).show();
+        }
 
     }
 

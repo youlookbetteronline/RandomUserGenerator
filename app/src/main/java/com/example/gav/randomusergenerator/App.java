@@ -3,7 +3,6 @@ package com.example.gav.randomusergenerator;
 import android.app.Application;
 import android.content.Context;
 
-
 import com.example.gav.randomusergenerator.api.RandomUserApi;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

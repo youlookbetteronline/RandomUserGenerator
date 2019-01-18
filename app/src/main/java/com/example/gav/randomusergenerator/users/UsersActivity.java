@@ -13,7 +13,6 @@ import androidx.appcompat.widget.Toolbar;
 
 public class UsersActivity extends AppCompatActivity {
     private Toolbar appToolbar;
-    private LinearLayout llRoot;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +29,6 @@ public class UsersActivity extends AppCompatActivity {
 
     private void initViews() {
         appToolbar = findViewById(R.id.appToolbar);
-        llRoot = findViewById(R.id.llRoot);
     }
 
     private void addUsersFragment() {

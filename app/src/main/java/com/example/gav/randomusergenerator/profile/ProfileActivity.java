@@ -1,12 +1,12 @@
 package com.example.gav.randomusergenerator.profile;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.FrameLayout;
 
 import com.example.gav.randomusergenerator.R;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class ProfileActivity extends AppCompatActivity {
 
